@@ -1,0 +1,24 @@
+[project]
+name = "coup-engine"
+version = "0.1.0"
+description = "Headless Coup engine and PettingZoo RL layer"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+rl = [
+    "pettingzoo>=1.24",
+    "gymnasium>=0.29",
+    "stable-baselines3>=2.3",
+    "sb3-contrib>=2.3",
+    "torch",
+    "tensorboard",
+]
+
+[tool.setuptools.packages.find]
+include = ["coup*", "coup_rl*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

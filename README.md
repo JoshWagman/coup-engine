@@ -152,8 +152,25 @@ coup/
   __init__.py     # public exports
   constants.py    # enums + fixed action-ID layout + helpers
   engine.py       # BoardGameEngine, state dataclasses, and the demo loop
+coup_rl/          # PettingZoo env, trainer, run recording, analytics
+  README.md       # training / analytics CLI
 tests/
-  test_engine.py  # masking invariants, rules edge cases, seeded playouts
 requirements.txt
+requirements-rl.txt
 README.md
+```
+
+## RL layer
+
+Training, TensorBoard, and claim/bluff analysis live in [`coup_rl/README.md`](coup_rl/README.md). Quick start:
+
+```bash
+pip install -r requirements-rl.txt
+python -m coup_rl.train --num-players 4 --timesteps 200000 --seed 0
+python -m coup_rl.analytics data/runs/20260920-201059-f67a7b9a --top
+python -m coup_rl.analytics data/runs/20260920-201059-f67a7b9a --phases
+python -m coup_rl.analytics data/runs/20260920-201059-f67a7b9a --hands
+python -m coup_rl.analytics data/runs/20260920-201059-f67a7b9a --bluff-wins
+python -m coup_rl.analytics data/runs/20260920-201059-f67a7b9a --plot
+python -m coup_rl.analytics data/runs/20260920-201059-f67a7b9a --challenges
 ```

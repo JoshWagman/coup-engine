@@ -1,0 +1,8 @@
+-r requirements.txt
+pettingzoo>=1.24
+gymnasium>=0.29
+stable-baselines3>=2.3
+sb3-contrib>=2.3
+torch
+tensorboard
+matplotlib
